@@ -151,8 +151,18 @@ def del_tasks(tasks, task_iD=None, filepath=DATA_FILE):
     return None
 
 
-def main(args):
-    tasks = load_tasks()
+def main(args=None):
+    # Parse arguments if main() was called with no args
+    if args is None:
+        parser = argparse.ArgumentParser(description="CLI Task Manager")
+        parser.add_argument("-v", "--view", action="store_true", help="Display all tasks")
+        parser.add_argument("-a", "--add", type=str, help="Add a task title")
+        parser.add_argument("-p", "--priority", choices=["High", "Med", "Low"], help="Set Priority")
+        parser.add_argument("-m", "--mark", type=int, help="Mark task complete using ID")
+        parser.add_argument("-d", "--dele", type=int, help="Delete task using ID")
+        args = parser.parse_args()
+
+    tasks = load_tasks()  
 
     # CLI Flags execution
     if args.view:
@@ -197,12 +207,4 @@ def main(args):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="CLI Task Manager")
-    parser.add_argument("-v", "--view", action="store_true", help="Display all tasks")
-    parser.add_argument("-a", "--add", type=str, help="Add a task title")
-    parser.add_argument("-p", "--priority", choices=["High", "Med", "Low"], help="Set Priority")
-    parser.add_argument("-m", "--mark", type=int, help="Mark task complete using ID")
-    parser.add_argument("-d", "--dele", type=int, help="Delete task using ID")
-
-    args = parser.parse_args()
-    main(args)
+    main()
