@@ -4,3 +4,4 @@ tasks.json
 .pytest_cache/
 .venv/
 env/
+*.egg-info/
