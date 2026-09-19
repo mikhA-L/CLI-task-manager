@@ -22,21 +22,22 @@ Mi Kha-el (mikhA-L)
 
 ---
 
-## Quick Start
 
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/mikhA-L/CLI-task-manager.git](https://github.com/mikhA-L/CLI-task-manager.git)
-   cd CLI-task-manager
-   
-Install dependencies:
+## Installation
+
+### Install via Pip (Recommended)
+You can install the CLI directly from GitHub:
 ```bash
-pip install -r requirements.txt
+pip install git+[https://github.com/mikhA-L/CLI-task-manager.git](https://github.com/mikhA-L/CLI-task-manager.git)
 ```
-Run the interactive application:
+
+Local Development Setup:
 ```bash
-python -m tmain.taskmanager
+git clone [https://github.com/mikhA-L/CLI-task-manager.git](https://github.com/mikhA-L/CLI-task-manager.git)
+cd CLI-task-manager
+pip install -e .
 ```
+
 | Command | Flag | Description |
 |---|---|---|
 | View Tasks | `-v`, `--view` | Displays all tasks in a table |
@@ -44,6 +45,11 @@ python -m tmain.taskmanager
 | Mark Complete | `-m`, `--mark` | Marks a task as complete using its ID |
 | Delete Task | `-d`, `--dele` | Deletes a task using its ID |
 
+Interactive Mode
+Simply run the command with no arguments to launch the interactive prompt:
+```bash
+taskmanager
+```
 Running Tests
 Execute the unit test suite:
 ```bash
